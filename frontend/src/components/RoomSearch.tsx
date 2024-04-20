@@ -12,7 +12,7 @@ const RoomSearch = ({ onSelectRoom }) => {
     useEffect(() => {
         const fetchAllRooms = async () => {
             try {
-                const response = await axios.get(`http://localhost:8787/api/v1/rooms/search`);
+                const response = await axios.get(`http://localhost:8787/api/v1/rooms/search`, { withCredentials: true });
                 setAllRooms(response.data);
                 setDisplayedRooms(response.data);
             } catch (error) {

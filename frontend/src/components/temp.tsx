@@ -26,7 +26,7 @@ const RoomScheduler = ({ room_id }: any) => {
     const fetchRoomEvents = async (roomId: string) => {
         try {
             // Make a GET request to the backend API endpoint
-            const response = await axios.get(`http://localhost:8787/api/v1/bookings/${roomId}`);
+            const response = await axios.get(`http://localhost:8787/api/v1/bookings/${roomId}`, { withCredentials: true });
             let events = [];
 
             // Check if the response data is an array
@@ -49,7 +49,6 @@ const RoomScheduler = ({ room_id }: any) => {
                 }));
 
             }
-            console.log("start_time", events[1].start);
 
             //console.log(events, "events line", response.data);
             // Update the events state with the processed events
@@ -101,7 +100,7 @@ const RoomScheduler = ({ room_id }: any) => {
 
     const handleDeleteEvent = async (event: EventApi) => {
         try {
-            await axios.delete(`http://localhost:8787/api/v1/bookings/${event.id}`);
+            await axios.delete(`http://localhost:8787/api/v1/bookings/${event.id}`, { withCredentials: true });
             setEvents((prevEvents) => prevEvents.filter((e) => e.id !== event.id));
 
         } catch (err) {

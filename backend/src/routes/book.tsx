@@ -14,24 +14,7 @@ export const book = new Hono<{
 book.use(cors({
     origin: "http://localhost:5173",
     credentials: true,
-    headers: [
-        "Content-Type",
-        "Authorization",
-        "X-Requested-With",
-        "Accept",
-        "Origin",
-        "User-Agent",
-        "DNT",
-        "Cache-Control",
-        "X-Mx-ReqToken",
-        "Keep-Alive",
-        "X-Requested-With",
-        "If-Modified-Since",
-        "X-CSRF-Token",
-        "Access-Control-Allow-Headers",
-        "Access-Control-Allow-Origin",
-        "Access-Control-Allow-Credentials",
-    ],
+
 }))
 
 book.use('/*', async (c, next) => {
